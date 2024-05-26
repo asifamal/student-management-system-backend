@@ -1,14 +1,3 @@
-# views.py
-from rest_framework import viewsets
-from rest_framework.views import APIView
-from .serializers import StudentSerializer
-
-
-
-# class StudentViewSet(viewsets.ModelViewSet):
-#     queryset = Student.objects.all()
-#     serializer_class = StudentSerializer
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
