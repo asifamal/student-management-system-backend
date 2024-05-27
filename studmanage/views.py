@@ -51,3 +51,11 @@ class StudentDeleteView(APIView):
         
         student.delete()
         return Response({"message": "Student deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+    
+class CheckEmailExists(APIView):
+    def get(self, request, *args, **kwargs):
+        email = request.GET.get('email', None)
+        if email:
+            if Student.objects.filter(email=email).exists():
+                return Response({'exists': True}, status=status.HTTP_200_OK)
+        return Response({'exists': False}, status=status.HTTP_200_OK)
